@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="RIGCREW connects oil and gas professionals with career opportunities across the global energy industry.">
+<title>RIGCREW | Global Oil & Gas Careers</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --navy:#071421;
+  --navy2:#0c2031;
+  --orange:#ff7628;
+  --white:#ffffff;
+  --muted:#a9b7c5;
+}
+* {box-sizing:border-box;margin:0;padding:0}
+html {scroll-behavior:smooth}
+body {
+  font-family:Inter,Arial,sans-serif;
+  background:var(--navy);
+  color:var(--white);
+  line-height:1.6;
+}
+a {text-decoration:none;color:inherit}
+header {
+  min-height:76px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 7%;
+  background:#081725;
+  border-bottom:1px solid #ffffff13;
+}
+.logo {
+  font-size:25px;
+  font-weight:900;
+  letter-spacing:1px;
+}
+.logo span {color:var(--orange)}
+nav {display:flex;gap:25px;align-items:center}
+nav a {font-size:13px;color:#d2dce5}
+nav a:hover {color:var(--orange)}
+.nav-btn,.primary-btn {
+  background:var(--orange);
+  color:#111;
+  padding:13px 20px;
+  border-radius:5px;
+  font-weight:800;
+  display:inline-block;
+}
+.hero {
+  min-height:590px;
+  display:flex;
+  align-items:center;
+  padding:85px 8%;
+  background:
+  linear-gradient(90deg,rgba(4,15,25,.96),rgba(4,15,25,.68)),
+  url("https://images.unsplash.com/photo-1516937941344-00b4e0337589?auto=format&fit=crop&w=1800&q=85") center/cover;
+}
+.hero-content {max-width:720px}
+.tag {
+  color:var(--orange);
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:3px;
+  margin-bottom:20px;
+}
+h1 {
+  font-size:clamp(42px,7vw,76px);
+  line-height:1.08;
+  font-weight:900;
+  margin-bottom:24px;
+}
+h1 span {color:var(--orange)}
+.hero p {
+  color:#d0d9e2;
+  font-size:16px;
+  max-width:590px;
+  margin-bottom:32px;
+}
+.hero-actions {display:flex;gap:14px;flex-wrap:wrap}
+.secondary-btn {
+  border:1px solid #ffffff70;
+  padding:13px 20px;
+  border-radius:5px;
+  font-weight:700;
+}
+.section {padding:85px 8%}
+.section-heading {max-width:700px;margin-bottom:40px}
+.section-heading h2 {
+  font-size:clamp(28px,4vw,42px);
+  margin-bottom:12px;
+}
+.section-heading p {color:var(--muted)}
+.orange {color:var(--orange)}
+.stats {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  background:var(--navy2);
+  padding:32px 8%;
+  text-align:center;
+  gap:20px;
+}
+.stat strong {font-size:27px;color:var(--orange);display:block}
+.stat span {font-size:12px;color:var(--muted)}
+.cards {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+.card {
+  background:#102538;
+  padding:28px;
+  border:1px solid #ffffff12;
+  border-radius:8px;
+  transition:.25s;
+}
+.card:hover {
+  transform:translateY(-5px);
+  border-color:var(--orange);
+}
+.card .icon {font-size:30px;margin-bottom:15px}
+.card h3 {font-size:19px;margin-bottom:9px}
+.card p {font-size:13px;color:var(--muted)}
+.jobs-area {background:#0a1b2a}
+.job-placeholder {
+  border:1px dashed #ffffff40;
+  border-radius:8px;
+  padding:35px;
+  text-align:center;
+}
+.job-placeholder h3 {margin-bottom:10px}
+.job-placeholder p {color:var(--muted);font-size:14px;margin-bottom:20px}
+.steps {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
+}
+.step {
+  padding:24px;
+  border-left:3px solid var(--orange);
+  background:#102538;
+}
+.step strong {color:var(--orange);font-size:24px}
+.step h3 {font-size:16px;margin:10px 0}
+.step p {font-size:12px;color:var(--muted)}
+.cta {
+  background:linear-gradient(120deg,#182e40,#0c1b29);
+  text-align:center;
+  padding:75px 8%;
+}
+.cta h2 {font-size:clamp(28px,4vw,42px);margin-bottom:15px}
+.cta p {color:var(--muted);margin-bottom:25px}
+footer {
+  padding:35px 8%;
+  background:#050e17;
+  color:var(--muted);
+  font-size:12px;
+}
+.footer-inner {
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:20px;
+}
+.footer-links {display:flex;gap:18px;flex-wrap:wrap}
+footer a:hover {color:var(--orange)}
+.disclaimer {
+  margin-top:25px;
+  border-top:1px solid #ffffff15;
+  padding-top:20px;
+}
+@media(max-width:800px) {
+  nav {display:none}
+  .cards {grid-template-columns:1fr 1fr}
+  .steps {grid-template-columns:1fr 1fr}
+}
+@media(max-width:520px) {
+  .cards,.steps {grid-template-columns:1fr}
+  .stats {grid-template-columns:1fr}
+  .hero {min-height:550px;padding:65px 7%}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <a href="index.html" class="logo">RIG<span>CREW</span></a>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="jobs.html">Find Jobs</a>
+    <a href="requirements.html">Requirements</a>
+    <a href="companies.html">For Companies</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+  <a href="jobs.html" class="nav-btn">Explore Careers</a>
+</header>
+
+<section class="hero">
+  <div class="hero-content">
+    <div class="tag">GLOBAL ENERGY CAREERS</div>
+    <h1>YOUR NEXT CAREER STARTS <span>ON THE RIG.</span></h1>
+    <p>
+      Discover opportunities across the global oil and gas industry.
+      Connect with energy-sector employers and explore your next
+      professional move, onshore or offshore.
+    </p>
+    <div class="hero-actions">
+      <a href="jobs.html" class="primary-btn">Explore Opportunities →</a>
+      <a href="companies.html" class="secondary-btn">For Employers</a>
+    </div>
+  </div>
+</section>
+
+<section class="stats">
+  <div class="stat">
+    <strong>GLOBAL</strong>
+    <span>Career opportunities</span>
+  </div>
+  <div class="stat">
+    <strong>ONSHORE</strong>
+    <span>Land-based operations</span>
+  </div>
+  <div class="stat">
+    <strong>OFFSHORE</strong>
+    <span>Marine and rig operations</span>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-heading">
+    <div class="tag">CAREER CATEGORIES</div>
+    <h2>Find Your Place in the <span class="orange">Energy Industry.</span></h2>
+    <p>Explore different professional fields across oil, gas and energy operations.</p>
+  </div>
+
+  <div class="cards">
+    <div class="card">
+      <div class="icon">🛢️</div>
+      <h3>Drilling Operations</h3>
+      <p>Explore drilling, rig-floor and well operations career paths.</p>
+    </div>
+    <div class="card">
+      <div class="icon">⚙️</div>
+      <h3>Engineering</h3>
+      <p>Mechanical, electrical, petroleum and process engineering.</p>
+    </div>
+    <div class="card">
+      <div class="icon">🔧</div>
+      <h3>Maintenance</h3>
+      <p>Technical maintenance, inspection and equipment support.</p>
+    </div>
+    <div class="card">
+      <div class="icon">🚢</div>
+      <h3>Offshore Operations</h3>
+      <p>Offshore platforms, vessels and marine operations.</p>
+    </div>
+    <div class="card">
+      <div class="icon">🦺</div>
+      <h3>HSE & Safety</h3>
+      <p>Health, safety, environment and operational compliance.</p>
+    </div>
+    <div class="card">
+      <div class="icon">📋</div>
+      <h3>Logistics & Support</h3>
+      <p>Supply chain, logistics, catering and administrative roles.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section jobs-area">
+  <div class="section-heading">
+    <div class="tag">CAREER OPPORTUNITIES</div>
+    <h2>Explore Available <span class="orange">Positions.</span></h2>
+    <p>Vacancies will be published here after confirmation from the relevant employers.</p>
+  </div>
+
+  <div class="job-placeholder">
+    <h3>New Opportunities Coming Soon</h3>
+    <p>We're preparing the RIGCREW job directory. Check back for verified employer-approved vacancies.</p>
+    <a href="jobs.html" class="primary-btn">Visit Jobs Directory →</a>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-heading">
+    <div class="tag">HOW IT WORKS</div>
+    <h2>Your Career Journey <span class="orange">Starts Here.</span></h2>
+    <p>A clear process for discovering and exploring energy-sector opportunities.</p>
+  </div>
+
+  <div class="steps">
+    <div class="step">
+      <strong>01</strong>
+      <h3>Explore Careers</h3>
+      <p>Browse the available job categories and confirmed vacancies.</p>
+    </div>
+    <div class="step">
+      <strong>02</strong>
+      <h3>Review Requirements</h3>
+      <p>Understand the experience, qualifications and certifications required.</p>
+    </div>
+    <div class="step">
+      <strong>03</strong>
+      <h3>Application Process</h3>
+      <p>Follow the application instructions provided for each verified vacancy.</p>
+    </div>
+    <div class="step">
+      <strong>04</strong>
+      <h3>Employer Review</h3>
+      <p>Eligible applications can be reviewed through the responsible employer or authorised recruiter.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="tag">RIGCREW GLOBAL</div>
+  <h2>Build Your Future in Energy.</h2>
+  <p>Explore the opportunities, skills and career paths shaping the global energy industry.</p>
+  <a href="jobs.html" class="primary-btn">Explore Careers →</a>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <a href="index.html" class="logo">RIG<span>CREW</span></a>
+    <div class="footer-links">
+      <a href="about.html">About</a>
+      <a href="jobs.html">Jobs</a>
+      <a href="contact.html">Contact</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+    </div>
+  </div>
+  <div class="disclaimer">
+    RIGCREW career information platform. Vacancies and recruitment services
+    must be confirmed by the relevant employer or properly authorised recruiter.
+    Publication of a vacancy does not guarantee employment, a visa or a work permit.
+    <br><br>
+    © 2026 RIGCREW. All rights reserved.
+  </div>
+</footer>
+
+</body>
+</html>
