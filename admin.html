@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RIGCREW | Admin Dashboard</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f2f5f9;
+    color: #17243a;
+}
+
+header {
+    background: #07172b;
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h2 span {
+    color: #ff8a00;
+}
+
+header a {
+    color: white;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.container {
+    padding: 25px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.welcome {
+    margin-bottom: 25px;
+}
+
+.welcome p {
+    color: #718096;
+    margin-top: 8px;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 18px;
+    margin-bottom: 30px;
+}
+
+.card {
+    background: white;
+    padding: 22px;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(0,0,0,.05);
+}
+
+.card h3 {
+    color: #718096;
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+.card strong {
+    font-size: 28px;
+}
+
+.section {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    box-shadow: 0 3px 12px rgba(0,0,0,.05);
+}
+
+.section h2 {
+    margin-bottom: 20px;
+}
+
+form {
+    display: grid;
+    gap: 15px;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #dce2eb;
+    border-radius: 7px;
+    font-size: 14px;
+}
+
+textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+button {
+    border: none;
+    background: #ff8a00;
+    color: white;
+    padding: 13px 20px;
+    border-radius: 7px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #df7600;
+}
+
+.notice {
+    background: #fff5e8;
+    color: #895000;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 13px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+footer {
+    text-align: center;
+    padding: 25px;
+    color: #718096;
+    font-size: 13px;
+}
+
+@media(max-width:600px) {
+    .container {
+        padding: 15px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h2>RIG<span>CREW</span> ADMIN</h2>
+    <a href="index.html">← View Website</a>
+</header>
+
+<div class="container">
+
+    <div class="welcome">
+        <h1>Admin Dashboard</h1>
+        <p>Manage RIGCREW's career listings and website information.</p>
+    </div>
+
+    <div class="notice">
+        <strong>Security notice:</strong> This is a dashboard interface prototype.
+        It is not protected by authentication yet. Before launch, we must connect
+        Supabase Auth and database security so only authorised administrators can
+        access management functions.
+    </div>
+
+    <div class="stats">
+
+        <div class="card">
+            <h3>Published Jobs</h3>
+            <strong>0</strong>
+        </div>
+
+        <div class="card">
+            <h3>Pending Jobs</h3>
+            <strong>0</strong>
+        </div>
+
+        <div class="card">
+            <h3>Applications</h3>
+            <strong>0</strong>
+        </div>
+
+        <div class="card">
+            <h3>Registered Companies</h3>
+            <strong>0</strong>
+        </div>
+
+    </div>
+
+    <div class="section">
+        <h2>Post a New Job</h2>
+
+        <form id="jobForm">
+
+            <input type="text" placeholder="Job Title" required>
+
+            <select required>
+                <option value="">Select Job Category</option>
+                <option>Offshore Jobs</option>
+                <option>Onshore Jobs</option>
+                <option>Drilling Operations</option>
+                <option>Engineering</option>
+                <option>Welding and Fabrication</option>
+                <option>Marine Operations</option>
+                <option>Health, Safety and Environment</option>
+                <option>Other</option>
+            </select>
+
+            <input type="text" placeholder="Company Name" required>
+
+            <input type="text" placeholder="Country / Work Location" required>
+
+            <input type="text" placeholder="Salary Range (e.g. USD 3,000–5,000/month)">
+
+            <select required>
+                <option value="">Select Work Type</option>
+                <option>Offshore</option>
+                <option>Onshore</option>
+                <option>Rotation</option>
+                <option>Contract</option>
+                <option>Full-time</option>
+            </select>
+
+            <textarea placeholder="Job Description and Requirements" required></textarea>
+
+            <button type="submit">Save Job Listing</button>
+
+        </form>
+
+        <p id="message" style="margin-top:15px;color:#b45309;font-size:13px;"></p>
+    </div>
+
+    <div class="section">
+        <h2>Job Management</h2>
+        <p style="color:#718096;line-height:1.7;">
+            Your published job listings will appear here after we connect
+            the dashboard to the RIGCREW database.
+        </p>
+    </div>
+
+    <div class="section">
+        <h2>Website Management</h2>
+        <p style="color:#718096;line-height:1.9;">
+            • Manage job categories<br>
+            • Update company information<br>
+            • Review employer listings<br>
+            • Manage published vacancies<br>
+            • Update website contact information
+        </p>
+    </div>
+
+</div>
+
+<footer>
+    RIGCREW Administration Panel<br>
+    © 2026 RIGCREW. All Rights Reserved.
+</footer>
+
+<script>
+document.getElementById("jobForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    document.getElementById("message").textContent =
+    "Dashboard prototype only. Job publishing will become available after database integration.";
+});
+</script>
+
+</body>
+</html>
