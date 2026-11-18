@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apply for a Position | RIGCREW</title>
+
+<style>
+:root {
+    --navy: #071525;
+    --navy2: #10263d;
+    --orange: #ff8a24;
+    --white: #ffffff;
+    --muted: #aebdca;
+    --border: #294158;
+    --green: #25b982;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #071525;
+    color: white;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+header {
+    background: #0b1d30;
+    padding: 18px 6%;
+    border-bottom: 1px solid #263b50;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: white;
+    font-size: 25px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.logo span {
+    color: var(--orange);
+}
+
+header a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.container {
+    width: 92%;
+    max-width: 850px;
+    margin: 35px auto;
+}
+
+.job-summary {
+    background: linear-gradient(135deg, #102b45, #0b1d30);
+    border: 1px solid #34516b;
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 25px;
+}
+
+.job-summary h1 {
+    margin: 5px 0;
+    font-size: 27px;
+}
+
+.job-summary p {
+    color: var(--muted);
+    margin: 5px 0;
+}
+
+.badge {
+    display: inline-block;
+    background: rgba(255,138,36,.15);
+    color: var(--orange);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.fee {
+    font-size: 25px;
+    color: var(--orange);
+    font-weight: bold;
+    margin-top: 12px;
+}
+
+.card {
+    background: #102238;
+    border: 1px solid var(--border);
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 25px;
+}
+
+.card h2 {
+    margin-top: 0;
+    font-size: 22px;
+}
+
+label {
+    display: block;
+    margin: 16px 0 7px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+input, textarea, select {
+    width: 100%;
+    padding: 14px;
+    border-radius: 8px;
+    border: 1px solid #3a5269;
+    background: #091a2b;
+    color: white;
+    font-size: 15px;
+    outline: none;
+}
+
+input:focus, textarea:focus, select:focus {
+    border-color: var(--orange);
+}
+
+textarea {
+    min-height: 110px;
+    resize: vertical;
+}
+
+input[type="file"] {
+    padding: 12px;
+}
+
+small {
+    display: block;
+    color: var(--muted);
+    margin-top: 6px;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    padding: 15px 22px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.primary {
+    background: var(--orange);
+    color: #101820;
+    width: 100%;
+    margin-top: 25px;
+}
+
+.primary:hover {
+    background: #ffab55;
+}
+
+.secondary {
+    background: #263e55;
+    color: white;
+    margin-top: 15px;
+    width: 100%;
+}
+
+.notice {
+    background: rgba(255,138,36,.09);
+    border: 1px solid rgba(255,138,36,.4);
+    color: #ffd2a8;
+    padding: 15px;
+    border-radius: 9px;
+    font-size: 13px;
+    margin-top: 20px;
+}
+
+.payment-box {
+    background: #091a2b;
+    border: 1px solid #34516b;
+    padding: 20px;
+    border-radius: 12px;
+    margin: 20px 0;
+}
+
+.payment-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 10px 0;
+    border-bottom: 1px solid #263b50;
+}
+
+.payment-row:last-child {
+    border-bottom: none;
+}
+
+.payment-total {
+    color: var(--orange);
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.trust {
+    color: #a9dcca;
+    font-size: 13px;
+    margin-top: 15px;
+}
+
+.checkbox-line {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    font-size: 13px;
+    color: #d5e0e9;
+    margin-top: 20px;
+}
+
+.checkbox-line input {
+    width: auto;
+    margin-top: 5px;
+}
+
+.checkbox-line a {
+    color: var(--orange);
+}
+
+.hidden {
+    display: none;
+}
+
+footer {
+    text-align: center;
+    padding: 30px 15px;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+@media(max-width:600px) {
+    .container {
+        margin: 20px auto;
+    }
+
+    .card, .job-summary {
+        padding: 19px;
+    }
+
+    .job-summary h1 {
+        font-size: 23px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">RIG<span>CREW</span></div>
+    <a href="jobs.html">← Back to Jobs</a>
+</header>
+
+<main class="container">
+
+    <!-- SELECTED JOB -->
+    <section class="job-summary">
+        <span class="badge">APPLICATION FORM</span>
+        <h1 id="jobTitle">Loading position...</h1>
+        <p id="company">Company</p>
+        <p id="location">Location</p>
+        <div class="fee" id="jobFee">$0</div>
+        <small>Displayed application processing amount</small>
+    </section>
+
+    <!-- APPLICATION FORM -->
+    <section class="card" id="applicationSection">
+
+        <h2>Applicant Information</h2>
+        <p style="color:#aebdca">
+            Complete the details below to prepare your application.
+        </p>
+
+        <form id="applicationForm">
+
+            <label for="fullName">Full Name *</label>
+            <input
+                type="text"
+                id="fullName"
+                required
+                autocomplete="name"
+                placeholder="Enter your full name"
+            >
+
+            <label for="email">Email Address *</label>
+            <input
+                type="email"
+                id="email"
+                required
+                autocomplete="email"
+                placeholder="Enter your email address"
+            >
+
+            <label for="phone">Phone Number with Country Code *</label>
+            <input
+                type="tel"
+                id="phone"
+                required
+                autocomplete="tel"
+                placeholder="Example: +234 800 000 0000"
+            >
+
+            <label for="country">Current Country / Location *</label>
+            <input
+                type="text"
+                id="country"
+                required
+                placeholder="Enter your current country"
+            >
+
+            <label for="experience">Years of Experience *</label>
+            <select id="experience" required>
+                <option value="">Select your experience</option>
+                <option>Less than 1 year</option>
+                <option>1 year</option>
+                <option>2 years</option>
+                <option>3 years</option>
+                <option>4 years</option>
+                <option>5 years</option>
+                <option>6–10 years</option>
+                <option>More than 10 years</option>
+            </select>
+
+            <label for="certificates">Certificates / Tickets Held *</label>
+            <textarea
+                id="certificates"
+                required
+                placeholder="List your certificates and safety tickets..."
+            ></textarea>
+
+            <label for="cv">Upload CV / Resume *</label>
+            <input
+                type="file"
+                id="cv"
+                accept=".pdf,.doc,.docx"
+                required
+            >
+            <small>Accepted formats: PDF, DOC and DOCX. Maximum size: 5MB.</small>
+
+            <label for="coverNote">Short Cover Note / Message (Optional)</label>
+            <textarea
+                id="coverNote"
+                placeholder="Tell us briefly about your experience and suitability..."
+            ></textarea>
+
+            <div class="notice">
+                Your information and CV are not uploaded or submitted by this
+                demonstration form. Secure application submission will be
+                enabled after the website's backend is connected.
+            </div>
+
+            <button type="submit" class="primary">
+                Proceed to Payment →
+            </button>
+
+        </form>
+    </section>
+
+    <!-- PAYMENT SUMMARY -->
+    <section class="card hidden" id="paymentSection">
+
+        <span class="badge">PAYMENT SUMMARY</span>
+        <h2>Review Your Application</h2>
+
+        <div class="payment-box">
+
+            <div class="payment-row">
+                <span>Position</span>
+                <strong id="summaryJob"></strong>
+            </div>
+
+            <div class="payment-row">
+                <span>Company</span>
+                <strong id="summaryCompany"></strong>
+            </div>
+
+            <div class="payment-row">
+                <span>Application Processing Fee</span>
+                <strong class="payment-total" id="summaryFee"></strong>
+            </div>
+
+        </div>
+
+        <p style="color:#c2d0dc;font-size:14px">
+            The displayed amount is described as covering application
+            processing, document verification and administrative handling.
+            Payment does not guarantee employment.
+        </p>
+
+        <div class="notice">
+            Payment collection is not active yet. The fee and recruitment
+            arrangements must be reviewed for compliance before applicants
+            can be charged.
+        </div>
+
+        <div class="trust">
+            🔒 Secure checkout will be provided when an approved payment
+            gateway is connected.<br><br>
+            Your card details are not collected on this page.
+        </div>
+
+        <label class="checkbox-line">
+            <input type="checkbox" id="termsCheck">
+            <span>
+                I confirm that I have read the
+                <a href="terms.html" target="_blank">Terms & Conditions</a>
+                and
+                <a href="privacy.html" target="_blank">Privacy Policy</a>,
+                and understand that payment does not guarantee employment.
+            </span>
+        </label>
+
+        <button type="button" class="primary" id="payButton" disabled
+            style="opacity:.5;cursor:not-allowed">
+            Pay Now – <span id="payAmount">$0</span>
+        </button>
+
+        <button type="button" class="secondary" id="backButton">
+            ← Return to Application Form
+        </button>
+
+        <small style="text-align:center;margin-top:15px">
+            Secure payment integration and refund policy publication are
+            required before checkout can be activated.
+        </small>
+
+    </section>
+
+</main>
+
+<footer>
+    © 2026 RIGCREW. All rights reserved.
+    <br>
+    <a href="privacy.html" style="color:#ff8a24">Privacy Policy</a>
+    &nbsp; | &nbsp;
+    <a href="terms.html" style="color:#ff8a24">Terms & Conditions</a>
+</footer>
+
+<script>
+
+// JOB INFORMATION
+const jobs = {
+    roughneck: {
+        title: "Roughneck",
+        company: "Apex Drilling Services",
+        location: "Gulf of Mexico, USA",
+        fee: 200
+    },
+
+    roustabout: {
+        title: "Roustabout",
+        company: "Horizon Energy Contractors",
+        location: "Port Harcourt, Nigeria",
+        fee: 220
+    },
+
+    derrickman: {
+        title: "Derrickman",
+        company: "Atlantic Rig Solutions",
+        location: "North Sea, UK",
+        fee: 280
+    },
+
+    assistant_driller: {
+        title: "Assistant Driller",
+        company: "GlobalDrill International",
+        location: "Offshore West Africa",
+        fee: 350
+    },
+
+    driller: {
+        title: "Driller",
+        company: "Titan Offshore Drilling",
+        location: "Middle East Offshore",
+        fee: 450
+    },
+
+    toolpusher: {
+        title: "Toolpusher",
+        company: "Summit Energy Resources",
+        location: "Gulf of Mexico / International",
+        fee: 550
+    },
+
+    crane_operator: {
+        title: "Crane Operator",
+        company: "MarineLift Services",
+        location: "Offshore Brazil",
+        fee: 320
+    },
+
+    hse_advisor: {
+        title: "HSE Advisor",
+        company: "SafeOps Energy",
+        location: "Various Offshore Locations",
+        fee: 400
+    }
+};
+
+// GET SELECTED JOB FROM URL
+const params = new URLSearchParams(window.location.search);
+const jobKey = params.get("job");
+
+const selectedJob = jobs[jobKey];
+
+const titleElement = document.getElementById("jobTitle");
+
+if (selectedJob) {
+    titleElement.textContent = selectedJob.title;
+
+    document.getElementById("company").textContent =
+        selectedJob.company;
+
+    document.getElementById("location").textContent =
+        selectedJob.location;
+
+    document.getElementById("jobFee").textContent =
+        "$" + selectedJob.fee.toLocaleString("en-US");
+
+} else {
+    titleElement.textContent = "Position Not Found";
+
+    document.getElementById("company").textContent =
+        "Please return to the jobs page and select a position.";
+
+    document.getElementById("location").textContent = "";
+
+    document.getElementById("jobFee").textContent = "Unavailable";
+}
+
+// APPLICATION FORM
+const applicationForm = document.getElementById("applicationForm");
+
+applicationForm.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    if (!selectedJob) {
+        alert("Please select a valid job from the jobs page.");
+        return;
+    }
+
+    const cv = document.getElementById("cv").files[0];
+
+    if (!cv) {
+        alert("Please select your CV or Resume.");
+        return;
+    }
+
+    const allowedTypes = [
+        "application/pdf",
+        "application/msword",
+        "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+    ];
+
+    const extension = cv.name.split(".").pop().toLowerCase();
+
+    if (!["pdf", "doc", "docx"].includes(extension)) {
+        alert("Please upload a PDF, DOC or DOCX file.");
+        return;
+    }
+
+    if (cv.size > 5 * 1024 * 1024) {
+        alert("Your CV must not exceed 5MB.");
+        return;
+    }
+
+    // DISPLAY PAYMENT SUMMARY
+    document.getElementById("summaryJob").textContent =
+        selectedJob.title;
+
+    document.getElementById("summaryCompany").textContent =
+        selectedJob.company;
+
+    document.getElementById("summaryFee").textContent =
+        "$" + selectedJob.fee.toLocaleString("en-US");
+
+    document.getElementById("payAmount").textContent =
+        "$" + selectedJob.fee.toLocaleString("en-US");
+
+    document.getElementById("applicationSection").classList.add("hidden");
+
+    document.getElementById("paymentSection").classList.remove("hidden");
+
+    window.scrollTo({top: 0, behavior: "smooth"});
+});
+
+// RETURN TO FORM
+document.getElementById("backButton").addEventListener("click", function() {
+
+    document.getElementById("paymentSection").classList.add("hidden");
+
+    document.getElementById("applicationSection").classList.remove("hidden");
+
+    window.scrollTo({top: 0, behavior: "smooth"});
+
+});
+
+</script>
+
+</body>
+</html>
