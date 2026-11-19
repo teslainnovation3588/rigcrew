@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#071525">
+<meta name="description" content="Apply for oil and gas industry positions with RIGCREW.">
 <title>Apply for a Position | RIGCREW</title>
 
 <style>
@@ -16,13 +18,11 @@
     --green: #25b982;
 }
 
-* {
-    box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 body {
     margin: 0;
-    background: #071525;
+    background: var(--navy);
     color: white;
     font-family: Arial, sans-serif;
     line-height: 1.6;
@@ -44,9 +44,7 @@ header {
     letter-spacing: 2px;
 }
 
-.logo span {
-    color: var(--orange);
-}
+.logo span { color: var(--orange); }
 
 header a {
     color: white;
@@ -135,9 +133,7 @@ textarea {
     resize: vertical;
 }
 
-input[type="file"] {
-    padding: 12px;
-}
+input[type="file"] { padding: 12px; }
 
 small {
     display: block;
@@ -161,8 +157,11 @@ button {
     margin-top: 25px;
 }
 
-.primary:hover {
-    background: #ffab55;
+.primary:hover { background: #ffab55; }
+
+.primary:disabled {
+    opacity: .5;
+    cursor: not-allowed;
 }
 
 .secondary {
@@ -198,20 +197,12 @@ button {
     border-bottom: 1px solid #263b50;
 }
 
-.payment-row:last-child {
-    border-bottom: none;
-}
+.payment-row:last-child { border-bottom: none; }
 
 .payment-total {
     color: var(--orange);
     font-size: 25px;
     font-weight: bold;
-}
-
-.trust {
-    color: #a9dcca;
-    font-size: 13px;
-    margin-top: 15px;
 }
 
 .checkbox-line {
@@ -228,11 +219,17 @@ button {
     margin-top: 5px;
 }
 
-.checkbox-line a {
-    color: var(--orange);
-}
+.checkbox-line a { color: var(--orange); }
 
-.hidden {
+.hidden { display: none !important; }
+
+.error-message {
+    color: #ff9292;
+    background: rgba(255,70,70,.09);
+    border: 1px solid rgba(255,70,70,.35);
+    border-radius: 8px;
+    padding: 12px;
+    margin-top: 15px;
     display: none;
 }
 
@@ -243,18 +240,13 @@ footer {
     font-size: 13px;
 }
 
+footer a { color: var(--orange); }
+
 @media(max-width:600px) {
-    .container {
-        margin: 20px auto;
-    }
-
-    .card, .job-summary {
-        padding: 19px;
-    }
-
-    .job-summary h1 {
-        font-size: 23px;
-    }
+    .container { margin: 20px auto; }
+    .card, .job-summary { padding: 19px; }
+    .job-summary h1 { font-size: 23px; }
+    .payment-row { flex-wrap: wrap; }
 }
 </style>
 </head>
@@ -268,20 +260,19 @@ footer {
 
 <main class="container">
 
-    <!-- SELECTED JOB -->
     <section class="job-summary">
         <span class="badge">APPLICATION FORM</span>
         <h1 id="jobTitle">Loading position...</h1>
-        <p id="company">Company</p>
-        <p id="location">Location</p>
+        <p id="company">Loading company...</p>
+        <p id="location">Loading location...</p>
         <div class="fee" id="jobFee">$0</div>
         <small>Displayed application processing amount</small>
     </section>
 
-    <!-- APPLICATION FORM -->
     <section class="card" id="applicationSection">
 
         <h2>Applicant Information</h2>
+
         <p style="color:#aebdca">
             Complete the details below to prepare your application.
         </p>
@@ -289,42 +280,26 @@ footer {
         <form id="applicationForm">
 
             <label for="fullName">Full Name *</label>
-            <input
-                type="text"
-                id="fullName"
-                required
-                autocomplete="name"
-                placeholder="Enter your full name"
-            >
+            <input type="text" id="fullName" name="fullName"
+                required autocomplete="name"
+                placeholder="Enter your full name">
 
             <label for="email">Email Address *</label>
-            <input
-                type="email"
-                id="email"
-                required
-                autocomplete="email"
-                placeholder="Enter your email address"
-            >
+            <input type="email" id="email" name="email"
+                required autocomplete="email"
+                placeholder="Enter your email address">
 
             <label for="phone">Phone Number with Country Code *</label>
-            <input
-                type="tel"
-                id="phone"
-                required
-                autocomplete="tel"
-                placeholder="Example: +234 800 000 0000"
-            >
+            <input type="tel" id="phone" name="phone"
+                required autocomplete="tel"
+                placeholder="Example: +234 800 000 0000">
 
             <label for="country">Current Country / Location *</label>
-            <input
-                type="text"
-                id="country"
-                required
-                placeholder="Enter your current country"
-            >
+            <input type="text" id="country" name="country"
+                required placeholder="Enter your current country">
 
             <label for="experience">Years of Experience *</label>
-            <select id="experience" required>
+            <select id="experience" name="experience" required>
                 <option value="">Select your experience</option>
                 <option>Less than 1 year</option>
                 <option>1 year</option>
@@ -337,44 +312,42 @@ footer {
             </select>
 
             <label for="certificates">Certificates / Tickets Held *</label>
-            <textarea
-                id="certificates"
+            <textarea id="certificates" name="certificates"
                 required
-                placeholder="List your certificates and safety tickets..."
-            ></textarea>
+                placeholder="List your certificates and safety tickets..."></textarea>
 
             <label for="cv">Upload CV / Resume *</label>
-            <input
-                type="file"
-                id="cv"
-                accept=".pdf,.doc,.docx"
-                required
-            >
-            <small>Accepted formats: PDF, DOC and DOCX. Maximum size: 5MB.</small>
+            <input type="file" id="cv" name="cv"
+                accept=".pdf,.doc,.docx" required>
+
+            <small>
+                Accepted formats: PDF, DOC and DOCX.
+                Maximum size: 5MB.
+            </small>
 
             <label for="coverNote">Short Cover Note / Message (Optional)</label>
-            <textarea
-                id="coverNote"
-                placeholder="Tell us briefly about your experience and suitability..."
-            ></textarea>
+            <textarea id="coverNote" name="message"
+                placeholder="Tell us briefly about your experience and suitability..."></textarea>
+
+            <div class="error-message" id="formError" role="alert"></div>
 
             <div class="notice">
-                Your information and CV are not uploaded or submitted by this
-                demonstration form. Secure application submission will be
-                enabled after the website's backend is connected.
+                Your information and CV have not yet been submitted.
+                This page will only submit an official application after
+                the approved payment and verification process is connected.
             </div>
 
             <button type="submit" class="primary">
-                Proceed to Payment →
+                Review Application →
             </button>
 
         </form>
     </section>
 
-    <!-- PAYMENT SUMMARY -->
     <section class="card hidden" id="paymentSection">
 
         <span class="badge">PAYMENT SUMMARY</span>
+
         <h2>Review Your Application</h2>
 
         <div class="payment-box">
@@ -397,37 +370,34 @@ footer {
         </div>
 
         <p style="color:#c2d0dc;font-size:14px">
-            The displayed amount is described as covering application
-            processing, document verification and administrative handling.
-            Payment does not guarantee employment.
+            Payment does not guarantee employment. Any applicable
+            processing fee, terms and refund conditions must be
+            clearly disclosed before payment is accepted.
         </p>
 
         <div class="notice">
-            Payment collection is not active yet. The fee and recruitment
-            arrangements must be reviewed for compliance before applicants
-            can be charged.
-        </div>
-
-        <div class="trust">
-            🔒 Secure checkout will be provided when an approved payment
-            gateway is connected.<br><br>
-            Your card details are not collected on this page.
+            Online payment is currently awaiting final gateway
+            integration and recruitment-fee compliance approval.
+            No payment will be collected through this page yet.
         </div>
 
         <label class="checkbox-line">
             <input type="checkbox" id="termsCheck">
+
             <span>
                 I confirm that I have read the
-                <a href="terms.html" target="_blank">Terms & Conditions</a>
+                <a href="terms.html" target="_blank" rel="noopener">
+                    Terms & Conditions
+                </a>
                 and
-                <a href="privacy.html" target="_blank">Privacy Policy</a>,
-                and understand that payment does not guarantee employment.
+                <a href="privacy.html" target="_blank" rel="noopener">
+                    Privacy Policy
+                </a>.
             </span>
         </label>
 
-        <button type="button" class="primary" id="payButton" disabled
-            style="opacity:.5;cursor:not-allowed">
-            Pay Now – <span id="payAmount">$0</span>
+        <button type="button" class="primary" id="payButton" disabled>
+            Payment Not Yet Available
         </button>
 
         <button type="button" class="secondary" id="backButton">
@@ -435,8 +405,8 @@ footer {
         </button>
 
         <small style="text-align:center;margin-top:15px">
-            Secure payment integration and refund policy publication are
-            required before checkout can be activated.
+            Your application is not officially submitted until the
+            required backend and payment verification are completed.
         </small>
 
     </section>
@@ -445,10 +415,10 @@ footer {
 
 <footer>
     © 2026 RIGCREW. All rights reserved.
-    <br>
-    <a href="privacy.html" style="color:#ff8a24">Privacy Policy</a>
+    <br><br>
+    <a href="privacy.html">Privacy Policy</a>
     &nbsp; | &nbsp;
-    <a href="terms.html" style="color:#ff8a24">Terms & Conditions</a>
+    <a href="terms.html">Terms & Conditions</a>
 </footer>
 
 <script>
@@ -512,15 +482,22 @@ const jobs = {
     }
 };
 
-// GET SELECTED JOB FROM URL
+// SELECTED JOB
 const params = new URLSearchParams(window.location.search);
 const jobKey = params.get("job");
-
 const selectedJob = jobs[jobKey];
 
 const titleElement = document.getElementById("jobTitle");
+const applicationForm = document.getElementById("applicationForm");
+const formError = document.getElementById("formError");
+
+function showError(message) {
+    formError.textContent = message;
+    formError.style.display = "block";
+}
 
 if (selectedJob) {
+
     titleElement.textContent = selectedJob.title;
 
     document.getElementById("company").textContent =
@@ -533,49 +510,48 @@ if (selectedJob) {
         "$" + selectedJob.fee.toLocaleString("en-US");
 
 } else {
+
     titleElement.textContent = "Position Not Found";
 
     document.getElementById("company").textContent =
-        "Please return to the jobs page and select a position.";
+        "Please return to the jobs page and select a valid position.";
 
     document.getElementById("location").textContent = "";
 
     document.getElementById("jobFee").textContent = "Unavailable";
+
+    applicationForm.querySelectorAll("input, textarea, select, button")
+        .forEach(element => element.disabled = true);
 }
 
-// APPLICATION FORM
-const applicationForm = document.getElementById("applicationForm");
-
+// FORM VALIDATION AND PAYMENT SUMMARY
 applicationForm.addEventListener("submit", function(event) {
+
     event.preventDefault();
 
+    formError.style.display = "none";
+
     if (!selectedJob) {
-        alert("Please select a valid job from the jobs page.");
+        showError("Please select a valid position from the jobs page.");
         return;
     }
 
     const cv = document.getElementById("cv").files[0];
 
     if (!cv) {
-        alert("Please select your CV or Resume.");
+        showError("Please upload your CV or Resume.");
         return;
     }
-
-    const allowedTypes = [
-        "application/pdf",
-        "application/msword",
-        "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
-    ];
 
     const extension = cv.name.split(".").pop().toLowerCase();
 
     if (!["pdf", "doc", "docx"].includes(extension)) {
-        alert("Please upload a PDF, DOC or DOCX file.");
+        showError("Please upload a PDF, DOC or DOCX file.");
         return;
     }
 
     if (cv.size > 5 * 1024 * 1024) {
-        alert("Your CV must not exceed 5MB.");
+        showError("Your CV must not exceed 5MB.");
         return;
     }
 
@@ -589,26 +565,32 @@ applicationForm.addEventListener("submit", function(event) {
     document.getElementById("summaryFee").textContent =
         "$" + selectedJob.fee.toLocaleString("en-US");
 
-    document.getElementById("payAmount").textContent =
-        "$" + selectedJob.fee.toLocaleString("en-US");
+    document.getElementById("applicationSection")
+        .classList.add("hidden");
 
-    document.getElementById("applicationSection").classList.add("hidden");
+    document.getElementById("paymentSection")
+        .classList.remove("hidden");
 
-    document.getElementById("paymentSection").classList.remove("hidden");
-
-    window.scrollTo({top: 0, behavior: "smooth"});
-});
-
-// RETURN TO FORM
-document.getElementById("backButton").addEventListener("click", function() {
-
-    document.getElementById("paymentSection").classList.add("hidden");
-
-    document.getElementById("applicationSection").classList.remove("hidden");
-
-    window.scrollTo({top: 0, behavior: "smooth"});
+    window.scrollTo({ top: 0, behavior: "smooth" });
 
 });
+
+// RETURN TO APPLICATION FORM
+document.getElementById("backButton")
+    .addEventListener("click", function() {
+
+        document.getElementById("paymentSection")
+            .classList.add("hidden");
+
+        document.getElementById("applicationSection")
+            .classList.remove("hidden");
+
+        window.scrollTo({ top: 0, behavior: "smooth" });
+
+    });
+
+// PAYMENT IS INTENTIONALLY DISABLED UNTIL SECURE
+// SERVER-SIDE PAYMENT VERIFICATION IS CONNECTED.
 
 </script>
 
