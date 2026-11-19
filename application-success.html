@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#071525">
+
+<title>Application Successful | RIGCREW</title>
+
+<style>
+:root {
+    --navy: #071525;
+    --navy2: #10263d;
+    --orange: #ff8a24;
+    --green: #25b982;
+    --muted: #aebdca;
+    --border: #294158;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: var(--navy);
+    color: white;
+    font-family: Arial, sans-serif;
+    line-height: 1.7;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background: #0b1d30;
+    padding: 20px 6%;
+    border-bottom: 1px solid #263b50;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.logo span {
+    color: var(--orange);
+}
+
+main {
+    width: 92%;
+    max-width: 650px;
+    margin: auto;
+    padding: 45px 0;
+}
+
+.success-card {
+    background: linear-gradient(145deg, #10263d, #0b1d30);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 35px;
+    text-align: center;
+    box-shadow: 0 15px 45px rgba(0,0,0,.25);
+}
+
+.success-icon {
+    width: 85px;
+    height: 85px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    background: rgba(37,185,130,.13);
+    border: 2px solid var(--green);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--green);
+    font-size: 45px;
+    font-weight: bold;
+}
+
+h1 {
+    font-size: 29px;
+    margin: 10px 0 18px;
+}
+
+.message {
+    color: #d3dee8;
+    font-size: 15px;
+    margin-bottom: 25px;
+}
+
+.reference-box {
+    background: #091a2b;
+    border: 1px solid #34516b;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 25px 0;
+}
+
+.reference-label {
+    color: var(--muted);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.reference-number {
+    color: var(--orange);
+    font-size: 22px;
+    font-weight: bold;
+    margin-top: 7px;
+    overflow-wrap: anywhere;
+}
+
+.next-steps {
+    text-align: left;
+    background: rgba(255,138,36,.07);
+    border: 1px solid rgba(255,138,36,.25);
+    border-radius: 10px;
+    padding: 18px;
+    margin-top: 25px;
+}
+
+.next-steps h3 {
+    color: var(--orange);
+    margin-top: 0;
+}
+
+.next-steps p {
+    color: #d3dee8;
+    font-size: 14px;
+}
+
+.home-button {
+    display: block;
+    width: 100%;
+    background: var(--orange);
+    color: #101820;
+    padding: 15px;
+    border-radius: 9px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 25px;
+}
+
+.home-button:hover {
+    background: #ffab55;
+}
+
+footer {
+    text-align: center;
+    padding: 25px 15px;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+footer a {
+    color: var(--orange);
+    text-decoration: none;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.pending-card {
+    background: #10263d;
+    border: 1px solid var(--border);
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.pending-card h2 {
+    color: var(--orange);
+}
+
+@media(max-width:600px) {
+    .success-card {
+        padding: 23px 18px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    .reference-number {
+        font-size: 19px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">RIG<span>CREW</span></div>
+</header>
+
+<main>
+
+    <!-- SUCCESS CONTENT -->
+    <section class="success-card hidden" id="successCard">
+
+        <div class="success-icon">✓</div>
+
+        <h1>Application Submitted Successfully</h1>
+
+        <div class="message">
+            <p>
+                Thank you. Your application has been received
+                and the processing fee has been confirmed.
+            </p>
+
+            <p>
+                Our team will carefully review your information
+                and contact you if any further details are required.
+            </p>
+
+            <p>
+                You will be notified of the next steps via
+                the email address you provided.
+            </p>
+        </div>
+
+        <div class="reference-box">
+
+            <div class="reference-label">
+                Application Reference
+            </div>
+
+            <div class="reference-number" id="referenceNumber">
+                Loading...
+            </div>
+
+        </div>
+
+        <div class="next-steps">
+
+            <h3>What's Next?</h3>
+
+            <p>
+                1. Your application will be reviewed by our team.
+            </p>
+
+            <p>
+                2. You will receive updates through your registered email.
+            </p>
+
+            <p>
+                3. Our team will contact you if additional
+                information is required.
+            </p>
+
+        </div>
+
+        <a href="index.html" class="home-button">
+            Return to Homepage
+        </a>
+
+    </section>
+
+    <!-- NO REFERENCE / UNVERIFIED ACCESS -->
+    <section class="pending-card" id="pendingCard">
+
+        <div class="success-icon">!</div>
+
+        <h2>Confirmation Not Available</h2>
+
+        <p style="color:#d3dee8">
+            We could not find a valid application reference.
+            Your payment and application status have not been
+            confirmed on this page.
+        </p>
+
+        <p style="color:#aebdca;font-size:14px">
+            If you have completed payment, please check your
+            email or contact the RIGCREW support team.
+        </p>
+
+        <a href="index.html" class="home-button">
+            Return to Homepage
+        </a>
+
+    </section>
+
+</main>
+
+<footer>
+    © 2026 RIGCREW. All rights reserved.
+    <br><br>
+    <a href="privacy.html">Privacy Policy</a>
+    &nbsp; | &nbsp;
+    <a href="terms.html">Terms & Conditions</a>
+</footer>
+
+<script>
+
+// The reference must be supplied by the backend.
+// Never generate a payment confirmation reference here.
+
+const params = new URLSearchParams(window.location.search);
+
+const reference = params.get("reference");
+
+const successCard = document.getElementById("successCard");
+const pendingCard = document.getElementById("pendingCard");
+
+if (
+    reference &&
+    /^RC-[A-Z0-9-]{5,40}$/i.test(reference)
+) {
+
+    document.getElementById("referenceNumber").textContent =
+        reference;
+
+    successCard.classList.remove("hidden");
+    pendingCard.classList.add("hidden");
+
+} else {
+
+    successCard.classList.add("hidden");
+    pendingCard.classList.remove("hidden");
+
+}
+
+</script>
+
+</body>
+</html>
